@@ -26,7 +26,7 @@ export default function CourseRegistration() {
             const lSData = sTGet()
             const newCourses = [];
             for (const id of lSData) {
-                const course = courses.find(data => data.id === id)
+                const course = courses.find(data => data.id === id.newId)
                 newCourses.push(course)
             }
             const tPACH = priceAndHr(newCourses)
@@ -42,10 +42,17 @@ export default function CourseRegistration() {
 
 
 
-    function addCourseList(course) {
-        setCourseId(course)
-        const res = StSetAndCheck(course)
-        console.log(res);
+    function addCourseList(id, hr) {
+        
+        const res = StSetAndCheck(id, hr)
+        if(res === 'ok'){
+            setCourseId(id)
+            console.log(res);
+        }
+        else{
+            console.log(res);
+        }
+        
     }
 
 

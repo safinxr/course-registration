@@ -6,14 +6,14 @@ function sTGet (){
     return [];
 }
 
-function StSetAndCheck (newId){
+function StSetAndCheck (newId, hr){
     const sTData =sTGet();
-    const alreadyExists = sTData.find(id => id === newId)
+    const alreadyExists = sTData.find(id => id.newId === newId)
     if(alreadyExists){
         return 'error';
     }
     else{
-        const newSTData = JSON.stringify([...sTData, newId])
+        const newSTData = JSON.stringify([...sTData, {newId, hr}])
         localStorage.setItem('courses', newSTData)
         return 'ok';
     }
