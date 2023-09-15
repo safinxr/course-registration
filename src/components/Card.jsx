@@ -18,7 +18,7 @@ export default function Card({ course, addCourseList }) {
                     <p className='ms-2.5 text-sm text-[#1C1B1B99]' >Credit: {credit_hour}hr</p>
                 </div>
             </div>
-            <button onClick={()=>addCourseList(course.id)} className='w-full bg-blue-500 text-white py-1 rounded-lg'>Select</button>
+            <button onClick={()=>addCourseList(course.id, course.credit_hour)} className='w-full bg-blue-500 text-white py-1 rounded-lg'>Select</button>
         </div>
     )
 

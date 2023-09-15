@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react"
 import Card from "./Card"
 import { StSetAndCheck, sTGet } from "../utilities/LocalStorage";
+import priceAndHr from "../utilities/priceAndHr";
+
+
 
 
 export default function CourseRegistration() {
     const [courses, setCourses] = useState([])
     const [remainingCredit, setRemainingCredit] = useState(20);
+    const [totalCredit, setTotalCredit] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     const [courseId, setCourseId] = useState(0)
     const [courseList, setCourseList] = useState([]);
 
@@ -17,13 +22,18 @@ export default function CourseRegistration() {
     }, [])
 
     useEffect(() => {
-        if (courses.length >= 0) {
+        if (courses.length) {
             const lSData = sTGet()
             const newCourses = [];
             for (const id of lSData) {
                 const course = courses.find(data => data.id === id)
                 newCourses.push(course)
             }
+            const tPACH = priceAndHr(newCourses)
+            const { price, hr, remainingHr } = tPACH
+            setTotalPrice(price)
+            setTotalCredit(hr)
+            setRemainingCredit(remainingHr)
             setCourseList(newCourses)
         }
     }, [courses, courseId])
@@ -32,11 +42,12 @@ export default function CourseRegistration() {
 
 
 
-    function  addCourseList(course) {
+    function addCourseList(course) {
         setCourseId(course)
         const res = StSetAndCheck(course)
         console.log(res);
     }
+
 
     return (
         <div className="flex items-start ">
@@ -49,15 +60,17 @@ export default function CourseRegistration() {
                 <h2 className="text-lg font-bold">Credit Hour Remaining {remainingCredit} hr</h2>
                 <hr className="m-4" />
                 <h2 className="text-lg font-bold">Course Name</h2>
-                {
-                    console.log(courseList)
-                }
-                {/* <ol class="list-decimal">
+                <ul className="list-decimal ms-4">
                     {
-
+                        courseList.map(data => {
+                            return (
+                                <li key={data.id}>
+                                    {data.title}
+                                </li>
+                            )
+                        })
                     }
-                </ol> */}
-
+                </ul>
             </section>
         </div>
     )
