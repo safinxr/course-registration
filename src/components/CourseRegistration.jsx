@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Card from "./Card"
-import { StSetAndCheck, sTGet } from "../utilities/LocalStorage";
+import { StSetAndCheck, sTGet, sTRemove } from "../utilities/LocalStorage";
 import priceAndHr from "../utilities/priceAndHr";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -61,18 +61,27 @@ export default function CourseRegistration() {
         const res = StSetAndCheck(id, hr)
 
         if (res === 'ok') {
-            setCourseId(id)
+            setCourseId(courseId+1)
         }
-        if(res === 'error2'){
+        if (res === 'error2') {
             notify('Insufficient credit hour')
         }
-        if (res === 'error'){
+        if (res === 'error') {
             notify('This course is already been added')
         }
     }
 
-    function removeList (cId){
-        console.log(cId);
+    function removeList(cId) {
+        const res = sTRemove(cId)
+        if (res === 'ok') {
+            setCourseId(courseId+1)
+        }
+
+        
+
+
+
+
     }
 
 
@@ -106,8 +115,8 @@ export default function CourseRegistration() {
                             return (
                                 <li className="leading-8 " key={data.id}>
                                     <div className="flex justify-between items-center">
-                                    {data.title} 
-                                    <p onClick={()=>removeList(data.id)} className="text-black cursor-pointer"><AiOutlineMinusCircle></AiOutlineMinusCircle></p>
+                                        {data.title}
+                                        <p onClick={() => removeList(data.id)} className="text-black cursor-pointer"><AiOutlineMinusCircle></AiOutlineMinusCircle></p>
                                     </div>
                                 </li>
                             )

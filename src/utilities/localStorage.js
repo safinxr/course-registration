@@ -29,4 +29,13 @@ function StSetAndCheck(newId, hr) {
     }
 }
 
-export { StSetAndCheck, sTGet }
+function sTRemove (cId){
+    const sTData = sTGet();
+    const afterRemove = sTData.filter(id => id.newId !== cId)
+    const removeDataJson =JSON.stringify(afterRemove)
+    localStorage.setItem('courses', removeDataJson)
+    return 'ok'
+
+}
+
+export { StSetAndCheck, sTGet, sTRemove }
