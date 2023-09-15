@@ -1,0 +1,74 @@
+[
+  {
+      "id": 1,
+      "title": "Introduction to C Programming",
+      "details": "Learn the fundamentals of C programming, including syntax, data types, basic algorithms, memory management, and debugging techniques.",
+      "price": 49.99,
+      "credit_hour": 1,
+      "image": "https://i.ibb.co/pWhPcM0/Rectangle-2-2.png"
+  },
+  {
+      "id": 2,
+      "title": "Introduction to Algorithms",
+      "details": "Explore the fascinating world of algorithms, their design, and analysis for problem-solving. Gain insights into algorithmic paradigms and advanced optimization techniques.",
+      "price": 59.99,
+      "credit_hour": 2,
+      "image": "https://i.ibb.co/RcJb8C1/Rectangle-2-3.png"
+  },
+  {
+      "id": 3,
+      "title": "Introduction to C++ for DSA",
+      "details": "Master C++ programming for data structures and algorithms (DSA). Learn about advanced C++ features, template metaprogramming, and STL for solving complex problems.",
+      "price": 69.99,
+      "credit_hour": 10,
+      "image": "https://i.ibb.co/MBKbh62/Rectangle-2-4.png"
+  },
+  {
+      "id": 4,
+      "title": "Basic Data Structures",
+      "details": "Learn essential data structures such as arrays, linked lists, trees, and their applications in building efficient algorithms and organizing data effectively.",
+      "price": 49.99,
+      "credit_hour": 5,
+      "image": "https://i.ibb.co/qJtfqyH/Rectangle-3.png"
+  },
+  {
+      "id": 5,
+      "title": "Introduction to OOP Python",
+      "details": "Discover object-oriented programming (OOP) in Python and its applications in software design, including encapsulation, inheritance, and polymorphism.",
+      "price": 59.99,
+      "credit_hour": 5,
+      "image": "https://i.ibb.co/fMqdhcZ/Rectangle-2.png"
+  },
+  {
+      "id": 6,
+      "title": "Software Engineering",
+      "details": "Learn software development methodologies, best practices, and agile project management. Dive into software architecture, testing, and quality assurance.",
+      "price": 79.99,
+      "credit_hour": 2,
+      "image": "https://i.ibb.co/NrytWPs/Rectangle-2-5.png"
+  },
+  {
+      "id": 7,
+      "title": "AWS, Cloud Computing",
+      "details": "Get hands-on experience with Amazon Web Services (AWS) cloud computing. Explore cloud architecture, DevOps practices, and cost optimization strategies.",
+      "price": 89.99,
+      "credit_hour": 5,
+      "image": "https://i.ibb.co/zGbQncr/Rectangle-3-1.png"
+  },
+  {
+      "id": 8,
+      "title": "Database (MySQL)",
+      "details": "Learn database design and management with MySQL. Understand relational database concepts, query optimization, and data modeling.",
+      "price": 59.99,
+      "credit_hour": 5,
+      "image": "https://i.ibb.co/ZcTM0Wm/Rectangle-2-1.png"
+  },
+  {
+      "id": 9,
+      "title": "Problem-Solving Part",
+      "details": "Develop advanced problem-solving skills in various domains, including algorithmic problem-solving, system design, and optimization strategies.",
+      "price": 69.99,
+      "credit_hour": 2,
+      "image": "https://i.ibb.co/bgrTKKc/Rectangle-2-6.png"
+  }
+]
