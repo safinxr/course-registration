@@ -2,17 +2,31 @@ import { useEffect, useState } from "react"
 import Card from "./Card"
 import { StSetAndCheck, sTGet } from "../utilities/LocalStorage";
 import priceAndHr from "../utilities/priceAndHr";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 export default function CourseRegistration() {
+
     const [courses, setCourses] = useState([])
     const [remainingCredit, setRemainingCredit] = useState(20);
     const [totalCredit, setTotalCredit] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [courseId, setCourseId] = useState(0)
     const [courseList, setCourseList] = useState([]);
+
+    const notify1 = () => toast.error('Insufficient credit hour', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+
 
 
     useEffect(() => {
@@ -45,19 +59,34 @@ export default function CourseRegistration() {
     function addCourseList(id, hr) {
 
         const res = StSetAndCheck(id, hr)
+
         if (res === 'ok') {
             setCourseId(id)
-            console.log(res);
         }
         else {
-            console.log(res);
+            notify1()
         }
+
+
 
     }
 
 
     return (
         <div className="flex items-start ">
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+
             <section className="w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {
                     courses.map(course => <Card course={course} key={course.id} addCourseList={addCourseList}></Card>)
