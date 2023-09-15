@@ -43,16 +43,16 @@ export default function CourseRegistration() {
 
 
     function addCourseList(id, hr) {
-        
+
         const res = StSetAndCheck(id, hr)
-        if(res === 'ok'){
+        if (res === 'ok') {
             setCourseId(id)
             console.log(res);
         }
-        else{
+        else {
             console.log(res);
         }
-        
+
     }
 
 
