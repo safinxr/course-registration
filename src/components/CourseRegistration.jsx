@@ -4,7 +4,7 @@ import { StSetAndCheck, sTGet } from "../utilities/LocalStorage";
 import priceAndHr from "../utilities/priceAndHr";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { AiOutlineMinusCircle, AiFillMinusCircle } from 'react-icons/ai'
 
 
 export default function CourseRegistration() {
@@ -16,7 +16,7 @@ export default function CourseRegistration() {
     const [courseId, setCourseId] = useState(0)
     const [courseList, setCourseList] = useState([]);
 
-    const notify1 = () => toast.error('Insufficient credit hour', {
+    const notify = (error) => toast.error(error, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -63,12 +63,16 @@ export default function CourseRegistration() {
         if (res === 'ok') {
             setCourseId(id)
         }
-        else {
-            notify1()
+        if(res === 'error2'){
+            notify('Insufficient credit hour')
         }
+        if (res === 'error'){
+            notify('This course is already been added')
+        }
+    }
 
-
-
+    function removeList (cId){
+        console.log(cId);
     }
 
 
@@ -92,21 +96,29 @@ export default function CourseRegistration() {
                     courses.map(course => <Card course={course} key={course.id} addCourseList={addCourseList}></Card>)
                 }
             </section>
-            <section className="w-1/4 ms-6 shadow-xl rounded-lg p-6">
+            <section className="w-1/4 ms-6 shadow-2xl rounded-lg p-6">
                 <h2 className="text-lg font-bold">Credit Hour Remaining {remainingCredit} hr</h2>
-                <hr className="m-4" />
+                <hr className="my-4" />
                 <h2 className="text-lg font-bold">Course Name</h2>
-                <ul className="list-decimal ms-4">
+                <ul className="list-decimal ms-4 my-6 text-[#1C1B1B99]">
                     {
                         courseList.map(data => {
                             return (
-                                <li key={data.id}>
-                                    {data.title}
+                                <li className="leading-8 " key={data.id}>
+                                    <div className="flex justify-between items-center">
+                                    {data.title} 
+                                    <p onClick={()=>removeList(data.id)} className="text-black cursor-pointer"><AiOutlineMinusCircle></AiOutlineMinusCircle></p>
+                                    </div>
                                 </li>
                             )
                         })
                     }
                 </ul>
+                <hr />
+                <p className="font-medium my-4">Total Credit Hour : {totalCredit}hr</p>
+                <hr />
+                <p className="font-medium mt-4">Total Price : {totalPrice} USD</p>
+
             </section>
         </div>
     )

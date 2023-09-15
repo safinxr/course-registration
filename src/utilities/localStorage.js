@@ -23,7 +23,7 @@ function StSetAndCheck(newId, hr) {
             return 'ok';
         }
         else{
-            return 'hur nai';
+            return 'error2';
         }
 
     }
