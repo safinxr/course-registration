@@ -77,11 +77,6 @@ export default function CourseRegistration() {
             setCourseId(courseId+1)
         }
 
-        
-
-
-
-
     }
 
 

@@ -4,7 +4,7 @@ export default function Card({ course, addCourseList }) {
 
     const { image, title, details, price, credit_hour } = course
     return (
-        <div className='p-4 shadow-2xl rounded-lg'>
+        <div className='active:scale-95 duration-500 p-4 shadow-2xl rounded-lg '>
             <img src={image} alt="" />
             <h3 className='text-[1.10rem] font-semibold mt-4 mb-3'>{title}</h3>
             <p className='text-sm text-[#1C1B1B99] mb-5 text-justify'>{details.slice(0, 95)}...</p>
@@ -20,6 +20,9 @@ export default function Card({ course, addCourseList }) {
             </div>
             <button onClick={()=>addCourseList(course.id, course.credit_hour)} className='w-full bg-blue-500 text-white py-1 rounded-lg'>Select</button>
         </div>
+
+
+
     )
 
 };
