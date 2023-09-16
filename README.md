@@ -3,7 +3,7 @@
 This website is about programming courses. Here user can choose the course for there need and add it to their cart.
 
 ## Demo
-[Website Live link]([https://650544055ed2ae661628cc9c--rainbow-gingersnap-443490.netlify.app/](https://65054a4d0c4f2c68d404bb98--remarkable-pie-773116.netlify.app/))
+[Website Live link](https://65054a4d0c4f2c68d404bb98--remarkable-pie-773116.netlify.app/)
 
 ## Features
 
