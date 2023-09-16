@@ -13,4 +13,4 @@ This website is about programming courses. Here user can choose the course for t
 
 ## State management 
 
-To manage the state in this project I use mostly two react hooks useState and useEffect. I used useEffect for loading data and useState for storing value and data.
+To manage the state in this project I used mainly two react hooks useState and useEffect. I used useEffect for loading data and useState for storing value and data.
